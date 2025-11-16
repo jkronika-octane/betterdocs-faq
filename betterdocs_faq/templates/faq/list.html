@@ -1,0 +1,26 @@
+<article itemprop="mainEntity"
+         itemscope itemtype="//schema.org/Collection">
+    <header>
+        <h1 id="faq-group"
+            role="heading"
+            aria-level="1"
+            itemprop="name">
+            {{ question }}
+        </h1>
+    </header>
+
+    {% for qa in qa_list %}
+        {% set level = 2 %}
+        {% set type = "hasPart" %}
+        {% set question = qa.question %}
+        {% set answer = qa.answer %}
+        {% include "faq/single.html" %}
+    {% endfor %}
+
+    <footer>
+        <meta itemprop="genre"
+              content="{{ category }}">
+        <meta itemprop="about"
+              content="{{ topic }}">
+    </footer>
+</article>

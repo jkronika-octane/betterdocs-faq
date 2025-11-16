@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"
+      itemscope itemtype="//schema.org/FAQPage">
+<head>
+    <title>FAQ: {{ question }}</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+{% if qa_list %}
+    {% include "faq/list.html" %}
+{% else %}
+    {% include "faq/single.html" %}
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<article itemprop="{{ prop|default('mainEntity') }}"
+         itemscope itemtype="//schema.org/Question">
+    <header>
+        <h{{ level|default(1) }} id="faq-question"
+            role="heading"
+            aria-level="{{ level|default(1) }}"
+            itemprop="name">
+            {{ question }}
+        </h{{ level|default(1) }}>
+    </header>
+
+    <section id="faq-answer"
+             role="region"
+             aria-labelledby="faq-question"
+             itemprop="acceptedAnswer"
+             itemscope itemtype="//schema.org/Answer">
+        <div itemprop="text">
+            {% for part in answer.contents %}{{ part|safe() }}{% endfor %}
+        </div>
+    </section>
+
+    <footer>
+        <meta itemprop="genre"
+              content="{{ category }}">
+        <meta itemprop="about"
+              content="{{ topic }}">
+    </footer>
+</article>
